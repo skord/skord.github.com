@@ -1,0 +1,10 @@
+---
+layout: post
+title: "First Post"
+date: 2012-11-08 09:54
+comments: true
+categories:
+---
+## Hi
+
+I'm Mike Danko. I really don't have time to talk about myself.
