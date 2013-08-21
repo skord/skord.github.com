@@ -9,7 +9,7 @@
   <meta name="author" content="Mike Danko">
 
   
-  <meta name="description" content="As a consulting Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone? The Rails community has really easy &hellip;">
+  <meta name="description" content="So what makes for a successful Hack Night? What is it I&rsquo;m calling a Hack Night? Who is the target audience? How can you put together one of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,136 +66,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/21/rails-on-smartos-part-1/">Rails on SmartOS Part 1</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-21T11:42:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
-        
-         | <a href="/blog/2013/08/21/rails-on-smartos-part-1/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As a consulting Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone?</p>
-
-<p>The Rails community has really easy options for deployment so it&rsquo;s not always something we think a whole lot about. We have <a href="http://skord.github.io/blog/2013/08/21/successful-hack-nights/">Engine Yard</a>, <a href="http://heroku.com">Heroku</a>, capistrano setups for deploying to VPS&rsquo;s that are pretty much magic, and things like the <a href="https://github.com/rubber/rubber">Rubber</a> gem that make it pretty much effortless to deploy a machine in the Amazon cloud.</p>
-
-<p>All of the above options will have your deployed application running on a Linux distribution by default. Linux is great. It&rsquo;s free, it&rsquo;s tested, it runs on everything.</p>
-
-<p>In a former career I had a Ruby app that was very very IO intensive. How intensive? 250,000,000 SNMP GETs in a 24 hour period, each and every one of them had to be persisted. A different app worked on around the same time managed massive amounts of video content with individual file sizes measured in terabytes.</p>
-
-<p>Those problems of scale aren&rsquo;t the ones the usual Rails folks think about when thinking of problems of scale. Linux is good enough for Google, why couldn&rsquo;t I make it work on that platform?</p>
-
-<p>It&rsquo;s not that I couldn&rsquo;t, but there were other solutions that made life incredibly simple, eliminated the need for hardware expansion, added security features as an unexpected bonus and made it so I didn&rsquo;t have to create a PA&rsquo;s for more stuff.</p>
-
-<p>That was about six years ago. We ended up deploying those two apps on OpenSolaris for a few reasons I&rsquo;ll cover later. Since then the kernel for that OS has been forked, new projects and products have arisen and one really stands out as a great application platform: <a href="http://smartos.org/">SmartOS</a> from <a href="http://joyent.com">Joyent</a>.</p>
-
-<p>In this four part series we&rsquo;ll cover four features of SmartOS that are the compelling reasons for developers to choose it as a platform. Part one is a history of the project&rsquo;s roots and some great developer centric features around ZFS.</p>
-
-<p>In posts 2-4 we&rsquo;ll go over resource and machine virtualization, dtrace features and how to deploy a Rails app on SmartOS.</p>
-
-<p>So first a little history on how they got to where they are before we get into why it&rsquo;s a killer Rails deployment platform.</p>
-
-<h3>Sun Microsystems</h3>
-
-<p>So in the early 2000&rsquo;s, Sun Microsystems was open sourcing everything they had as well as purchasing companies that had great products that were already open sourced, like MySQL.</p>
-
-<p>Licensing was complicated though. Sun didn&rsquo;t have the authority to release some of their existing products under licenses like the GPL, so they based a new license of their own making off the Mozilla Public License and called it the CDDL.</p>
-
-<p>They&rsquo;d released Java and many other products under a public license, but there was still a behemoth in the room that was still proprietary: Solaris.</p>
-
-<p>So they set about the path to create the next version of Solaris under a public license. The kernel was named Nevada and the effort to build a fully fledged OS around it was Indiana.</p>
-
-<p>The community behind these projects was a who&rsquo;s who of the *NIX world. I could name names, but we only have so many pixels.</p>
-
-<p>In 2009, the first Live CD was released with a full gnome-based desktop. The project was on a 6 month release schedule and things were going swimmingly.</p>
-
-<p>After Oracle&rsquo;s purchase of Sun, the release date for the next OpenSolaris slipped, and it slipped without a word. Two months later, Oracle announced they were discontinuing the product in favor of other options and OpenSolaris was no more.</p>
-
-<p>Since this was an open source project, it lived on in forks. So why bother forking something like this when upstream is no more? It&rsquo;s the features.</p>
-
-<h3>Feature 1: ZFS</h3>
-
-<p>One of the most compelling features that came from later editions of Solaris 10 was the new file system: ZFS. It was designed to be future proof and had some compelling features, such as:</p>
-
-<ul>
-<li>An 128 bit storage system. Mathmatically, this amount of storage has been calculated as needing the amount of energy to boil the earth&rsquo;s oceans to be powered. <a href="https://blogs.oracle.com/dcb/entry/zfs_boils_the_ocean_consumes">Check it for yourself</a>.</li>
-<li>Guaranteed data integrity with a focus on preventing silent data corruption.</li>
-<li>Storage pools. Storage is virtualized into pools meaning adding storage to a volume is as easy as plugging in drives.</li>
-<li>Snapshots. ZFS has a <a href="http://en.wikipedia.org/wiki/Copy-on-write">copy-on-write</a> transactional model that makes it possible to capture a snapshot of an entire working filesystem at once, then storing only the differences between that and the new filesystem as it continues to change.</li>
-<li>Attack of the clones! The above file system snapshots can be cloned, and the clones only consume disk space that is the diff between the working copy and the clone. This operation is nearly instant.</li>
-<li>It&rsquo;s network centric. Shipping a filesystem across the network to another machine is as easy as running &ldquo;zfs send&rdquo;</li>
-<li>The ARC (FS Cache), adaptable volume block sizes, deduplication, encryption, and many, many more features.</li>
-</ul>
-
-
-<p>As a developer, you may think that these are mostly ops related problems. The two do eventually meet, so let&rsquo;s go over some scenarios that can make your life easier with ZFS.</p>
-
-<h5>Brogrammer Bob and his Magical Migrations</h5>
-
-<p>Brogrammer Bob is getting ready to deploy to staging using capistrano. Prior to starting, he creates a ZFS snapshot for his Postgres installation.</p>
-
-<p>Something with the data set didn&rsquo;t go right and it wasn&rsquo;t something that could be easily tested. The migration wasn&rsquo;t wrapped in a transaction and it half completed. Bob restores his snapshot and goes back to the drawing board.</p>
-
-<h5>Deployer Dan and his Super Security Patches</h5>
-
-<p>A critical security patch for the database is announced. Upgrading involves upgrading many OS packages as the problem is in a C library. One of the system daemons fails, causing chaos and mass hysteria. No problem though, as Dan made a system wide snapshot before starting. He reboots the system, chooses the old boot environment from GRUB, and he&rsquo;s back to where he started within 30 seconds of what was a catastrophic event.</p>
-
-<h5>Patricia and her Postgres</h5>
-
-<p>Our app has a lot of IO-bound queries. The database is quite large at this point and performance is quite poor. The filesystem that the Postgres data is on is migrated to one with ZFS&rsquo;s compression turned on. Patty sees a 3x-4x speed-up in these queries.</p>
-
-<p>Even with the overhead of compression, the queries are limited by disk throughput and not the CPU. We&rsquo;re reading less data from the disk&rsquo;s cache at this point, so boom, perfomance increase. In addition, seek times are much lower because compression reduces the physical distance between logical blocks.</p>
-
-<h5>Donny and Dedepulication</h5>
-
-<p>ZFS includes an option to deduplicate data on a per-block basis. Say our app holds buckets of files for groups of users. Outside of our application, our users start emailing around a crazy cat gif and drop it in their box-in-which-they-drop-things that we host. The 100 copies of the 5Mb GIF now only exist once.</p>
-
-<p>A cat GIF is one thing, how about a few thousand developers storing their projects on your service? If our block size is set to 4K and we have file level deduplication on, all the files that are inevitably similar will cut down on your storage needs considerably.</p>
-
-<p>Deduplication has an overhead however and it&rsquo;s something you don&rsquo;t want to willy-nilly just turn on. When you benefit from it, you can really benefit from it, when your dataset does not benefit from deduplication, the overhead can be more trouble than it&rsquo;s worth. Fortunately, it&rsquo;s easy to turn on and off.</p>
-
-<p>For more information on dedup&rsquo;s advantages and drawbacks, the following two links are for the technical minded:</p>
-
-<p><a href="https://blogs.oracle.com/bonwick/entry/zfs_dedup">https://blogs.oracle.com/bonwick/entry/zfs_dedup</a>
-<a href="https://blogs.oracle.com/roch/entry/dedup_performance_considerations1">https://blogs.oracle.com/roch/entry/dedup_performance_considerations1</a></p>
-
-<h3>Summary</h3>
-
-<p>The features of ZFS are pretty compelling, but it&rsquo;s just the start of the whole package that is an amazing platform for Rubyists.</p>
-
-<p>Next time we&rsquo;ll explore some of the virtualization features of SmartOS, something that doesn&rsquo;t stop at virtual machines but allows you to have fined grained control over every aspect of the machine, including network traffic, and how you can use these things as a developer to deliver great product to your users.</p>
-
-<p>Stop #3 on the SmartOS train will take us to DTrace and solving production issues.</p>
-
-<p>The last stop will bring us to creating and deploying an app on SmartOS that leverages all the features we&rsquo;ll eventually cover.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -320,10 +190,6 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/08/21/rails-on-smartos-part-1/">Rails on SmartOS Part 1</a>
-      </li>
     
       <li class="post">
         <a href="/blog/2013/08/21/successful-hack-nights/">Successful Hack Nights</a>
