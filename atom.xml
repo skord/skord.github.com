@@ -4,7 +4,7 @@
   <title><![CDATA[Danko]]></title>
   <link href="http://skord.github.io/atom.xml" rel="self"/>
   <link href="http://skord.github.io/"/>
-  <updated>2013-08-21T11:26:14-04:00</updated>
+  <updated>2013-08-21T11:28:54-04:00</updated>
   <id>http://skord.github.io/</id>
   <author>
     <name><![CDATA[Mike Danko]]></name>
@@ -12,5 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Successful Hack Nights]]></title>
+    <link href="http://skord.github.io/blog/2013/08/21/successful-hack-nights/"/>
+    <updated>2013-08-21T10:09:00-04:00</updated>
+    <id>http://skord.github.io/blog/2013/08/21/successful-hack-nights</id>
+    <content type="html"><![CDATA[<p>So what makes for a successful Hack Night? What is it I&rsquo;m calling a Hack Night? Who is the target audience? How can you put together one of your own? Why would you want to have a hack night of your own? All questions I will answer in due time.</p>
+
+<p>We&rsquo;ve been running Hack Nights at Neo Columbus for about a year now and there have been things I&rsquo;ve seen work well for our group and things that have been… eh.</p>
+
+<h3>Hack Night?</h3>
+
+<p>In it&rsquo;s essence, it&rsquo;s a pizza &amp; BYOB night where people bring laptops and ideas.</p>
+
+<p>Another take on hack nights is that they fill a void between user groups and conferences. User groups can be a lot of talking and technical talks without a lot of <em>doing</em> things. Conferences in my mind are more about cheerleading and morale boosting for developers and the hack night allows smaller groups of people to actively work on things in small groups.</p>
+
+<p>The intention when starting our hack nights was to have folks come up with great ideas and have folks around to help, but it&rsquo;s turned into so much more. The learning expereiences people have shared have been very compelling stories.</p>
+
+<h3>Learning Experiences</h3>
+
+<p>Everyone. Even the non-technical especially the non-technical.</p>
+
+<p>My last take on hack nights is that they fill yet another gap in training, the classroom vs. the real world. I&rsquo;ve often thought of our hack nights as a <a href="http://en.wikipedia.org/wiki/Montessori_education]">Montessori Education</a> for programmers.</p>
+
+<p>When you run a classroom or a lab, it&rsquo;s much like a traditional education. The assumption is that everyone is at the same level and we&rsquo;re all starting from square one.</p>
+
+<p>We&rsquo;re not though. We&rsquo;re not all the same age and at the same place from any sort of measurable metric. When we go to work, we&rsquo;re not all of the same set of technical and life experiences, and that&rsquo;s a <strong>good thing</strong>. Learning is a two way street. Teachers learn from students as much as students learn from teachers.</p>
+
+<p>As someone who&rsquo;s been in the field quite a while now, the benefits for me as a participant are massive. Technical people can have a habit of being focused on technical details. I&rsquo;m reminded of when my six year old son asked my PhD Physics professor neighbor &ldquo;Where does gravity come from?&rdquo; &mdash; the professor sort of imploded. Thinking about these things can inject fresh perspective into my daily life as a programmer. Another benefit is that my own knowledge of topics is futher understood by explaining a topic, if only for the fact that I&rsquo;ve recited it aloud as a learning method for myself.</p>
+
+<p>The feedback we&rsquo;ve gotten on mailing lists from people who are new to the field has been phenominal as far as how this sort of environment has impacted their personal growth. Fifteen minute conversations here and there have led to more people saying &ldquo;I&rsquo;ve never learned more than when at a hack night&rdquo; than I can currently count.</p>
+
+<h3>Success Factors</h3>
+
+<h4>Audience Size</h4>
+
+<p>Beleive it or not, some of the best feedback and most fun I&rsquo;ve personally had are at the hack nights where attendance was low. People tend to get the most out of working together in small groups and tend to form little tribes anyway.</p>
+
+<p>Is there an upper limit? Probably only limited by venue capacity. Standing room only hack nights can get a little chaotic, but some people thrive in that sort of atmosphere.</p>
+
+<h4>Keep it Unstructured</h4>
+
+<p>If we&rsquo;re in Hacker Montessori school, the key is self direction when learning and working. Attempts to even have lightning talks have not gone well &mdash; in fact, folks were usually ignored.</p>
+
+<h4>Be Social</h4>
+
+<p>Programmers can be a little &ldquo;heads down&rdquo; sometimes when they&rsquo;re into something. Even those with a lot of technical experience will often avoid bothering someone who looks busy. Someone who has their head down on a project might often not be able to switch gears to a conversation and perhaps not communicate well with someone who&rsquo;s asking questions.</p>
+
+<p>People also may not know each other well enough to have conversations with folks or to probe as to why they&rsquo;re there. Other times people may know each other too well and and form cliques.</p>
+
+<p>Getting everyone involved is as simple as asking &ldquo;What are you working on?&rdquo; to a random stranger. In the end, most people are excited to actually answer this question and you can spark some great conversation and learning experiences.</p>
+
+<h4>Diversity</h4>
+
+<p>The earliest of hack nights were an extension from our local <a href="http://columbusrb.com">Ruby Brigade</a>. They were fun, but the same audience we always saw. We used a number of methods of reaching out, be it a reddit post or encouraging word of mouth. Bringing in more people from outside the fold worked out for everyone involved.</p>
+
+<p>The early groups tended to all work on similar things, since we were all from the same user group. With a more diverse audience we&rsquo;ve gone into topics like product development, languages outside our normal scopes, and tackling problems outside the domain of he average rubyist.</p>
+
+<h4>Scheduling</h4>
+
+<p>We&rsquo;ve found three hours works well. People who want to stay less can come and go and filter in and out as they please. Any longer than three hours and folks can be a little worn out. Someone&rsquo;s gotta clean up, right?</p>
+
+<p>Setting a limit isn&rsquo;t a bad thing, especially if people want to keep working or talking about things. It just means that they get to keep thinking, following up with each other and has people looking forward to next time.</p>
+
+<p>Every other week has been a good fit with us as far as frequency. We&rsquo;ve got lots of other local groups and events, and any more frequent and we&rsquo;d not be able to have a consistent base of folks coming.</p>
+
+<h3>TL;DR</h3>
+
+<p>So the ingredients for a good hack night?</p>
+
+<ul>
+<li>Free Pizza</li>
+<li>Beverages</li>
+<li>Social people</li>
+<li>Unstructured Chaos</li>
+<li>Inviting lots of people from diverse backgrounds</li>
+<li>A consistent schedule</li>
+</ul>
+
+]]></content>
+  </entry>
   
 </feed>
