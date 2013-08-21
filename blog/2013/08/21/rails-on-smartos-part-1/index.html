@@ -1,24 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Danko]]></title>
-  <link href="http://skord.github.io/atom.xml" rel="self"/>
-  <link href="http://skord.github.io/"/>
-  <updated>2013-08-21T15:07:48-04:00</updated>
-  <id>http://skord.github.io/</id>
-  <author>
-    <name><![CDATA[Mike Danko]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rails on SmartOS Part 1 - Danko</title>
+  <meta name="author" content="Mike Danko">
 
   
-  <entry>
-    <title type="html"><![CDATA[Rails on SmartOS Part 1]]></title>
-    <link href="http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1/"/>
-    <updated>2013-08-21T11:42:00-04:00</updated>
-    <id>http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1</id>
-    <content type="html"><![CDATA[<p>As a consulting Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone?</p>
+  <meta name="description" content="As a consulting Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone? The Rails community has really easy &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Danko" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Danko</a></h1>
+  
+    <h2>Stuff.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:skord.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About Me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Rails on SmartOS Part 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T11:42:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As a consulting Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone?</p>
 
 <p>The Rails community has really easy options for deployment so it&rsquo;s not always something we think a whole lot about. We have <a href="http://skord.github.io/blog/2013/08/21/successful-hack-nights/">Engine Yard</a>, <a href="http://heroku.com">Heroku</a>, capistrano setups for deploying to VPS&rsquo;s that are pretty much magic, and things like the <a href="https://github.com/rubber/rubber">Rubber</a> gem that make it pretty much effortless to deploy a machine in the Amazon cloud.</p>
 
@@ -111,90 +187,159 @@
 <p>Stop #3 on the SmartOS train will take us to DTrace and solving production issues.</p>
 
 <p>The last stop will bring us to creating and deploying an app on SmartOS that leverages all the features we&rsquo;ll eventually cover.</p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Successful Hack Nights]]></title>
-    <link href="http://skord.github.io/blog/2013/08/21/successful-hack-nights/"/>
-    <updated>2013-08-21T10:09:00-04:00</updated>
-    <id>http://skord.github.io/blog/2013/08/21/successful-hack-nights</id>
-    <content type="html"><![CDATA[<p>So what makes for a successful Hack Night? What is it I&rsquo;m calling a Hack Night? Who is the target audience? How can you put together one of your own? Why would you want to have a hack night of your own? All questions I will answer in due time.</p>
 
-<p>We&rsquo;ve been running Hack Nights at Neo Columbus for about a year now and there have been things I&rsquo;ve seen work well for our group and things that have been… eh.</p>
+<span class="byline author vcard">Posted by <span class="fn">Mike Danko</span></span>
 
-<h3>Hack Night?</h3>
+      
 
-<p>In it&rsquo;s essence, it&rsquo;s a pizza &amp; BYOB night where people bring laptops and ideas.</p>
 
-<p>Another take on hack nights is that they fill a void between user groups and conferences. User groups can be a lot of talking and technical talks without a lot of <em>doing</em> things. Conferences in my mind are more about cheerleading and morale boosting for developers and the hack night allows smaller groups of people to actively work on things in small groups.</p>
 
-<p>It&rsquo;s a great way to extend the reach of an existing community and to bring new people into the fold. Hands-on people don&rsquo;t get much out of lectures and will get a chance to participate rather than consume and become creators themselves.</p>
 
-<p>The intention when starting our hack nights was to have folks come up with great ideas and have folks around to help, but it&rsquo;s turned into so much more. The learning expereiences people have shared have been very compelling stories.</p>
 
-<h3>Learning Experiences</h3>
 
-<p>Who should come and learn things? Everyone. Even the non-technical.</p>
 
-<p>My last take on hack nights is that they fill yet another gap in training, the classroom vs. the real world. I&rsquo;ve often thought of our hack nights as a <a href="http://en.wikipedia.org/wiki/Montessori_education]">Montessori Education</a> for programmers.</p>
 
-<p>When you run a classroom or a lab, it&rsquo;s much like a traditional education. The assumption is that everyone is at the same level and we&rsquo;re all starting from square one.</p>
-
-<p>We&rsquo;re not though. We&rsquo;re not all the same age and at the same place from any sort of measurable metric. When we go to work, we&rsquo;re not all of the same set of technical and life experiences, and that&rsquo;s a <strong>good thing</strong>. Learning is a two way street. Teachers learn from students as much as students learn from teachers.</p>
-
-<p>As someone who&rsquo;s been in the field quite a while now, the benefits for me as a participant are massive. Technical people can have a habit of being focused on technical details. I&rsquo;m reminded of when my six year old son asked my PhD Physics professor neighbor &ldquo;Where does gravity come from?&rdquo; &mdash; the professor sort of imploded. Thinking about these things can inject fresh perspective into my daily life as a programmer. Another benefit is that my own knowledge of topics is futher understood by explaining a topic, if only for the fact that I&rsquo;ve recited it aloud as a learning method for myself.</p>
-
-<p>The feedback we&rsquo;ve gotten on mailing lists from people who are new to the field has been phenominal as far as how this sort of environment has impacted their personal growth. Fifteen minute conversations here and there have led to more people saying &ldquo;I&rsquo;ve never learned more than when at a hack night&rdquo; than I can currently count.</p>
-
-<h3>Success Factors</h3>
-
-<h4>Audience Size</h4>
-
-<p>Beleive it or not, some of the best feedback and most fun I&rsquo;ve personally had are at the hack nights where attendance was low. People tend to get the most out of working together in small groups and tend to form little tribes anyway.</p>
-
-<p>Is there an upper limit? Probably only limited by venue capacity. Standing room only hack nights can get a little chaotic, but some people thrive in that sort of atmosphere.</p>
-
-<h4>Keep it Unstructured</h4>
-
-<p>If we&rsquo;re in Hacker Montessori school, the key is self direction when learning and working. Attempts to even have lightning talks have not gone well &mdash; in fact, folks were usually ignored.</p>
-
-<h4>Be Social</h4>
-
-<p>Programmers can be a little &ldquo;heads down&rdquo; sometimes when they&rsquo;re into something. Even those with a lot of technical experience will often avoid bothering someone who looks busy. Someone who has their head down on a project might often not be able to switch gears to a conversation and perhaps not communicate well with someone who&rsquo;s asking questions.</p>
-
-<p>People also may not know each other well enough to have conversations with folks or to probe as to why they&rsquo;re there. Other times people may know each other too well and and form cliques.</p>
-
-<p>Getting everyone involved is as simple as asking &ldquo;What are you working on?&rdquo; to a random stranger. In the end, most people are excited to actually answer this question and you can spark some great conversation and learning experiences.</p>
-
-<h4>Diversity</h4>
-
-<p>The earliest of hack nights were an extension from our local <a href="http://columbusrb.com">Ruby Brigade</a>. They were fun, but the same audience we always saw. We used a number of methods of reaching out, be it a reddit post or encouraging word of mouth. Bringing in more people from outside the fold worked out for everyone involved.</p>
-
-<p>The early groups tended to all work on similar things, since we were all from the same user group. With a more diverse audience we&rsquo;ve gone into topics like product development, languages outside our normal scopes, and tackling problems outside the domain of he average rubyist.</p>
-
-<h4>Scheduling</h4>
-
-<p>We&rsquo;ve found three hours works well. People who want to stay less can come and go and filter in and out as they please. Any longer than three hours and folks can be a little worn out. Someone&rsquo;s gotta clean up, right?</p>
-
-<p>Setting a limit isn&rsquo;t a bad thing, especially if people want to keep working or talking about things. It just means that they get to keep thinking, following up with each other and has people looking forward to next time.</p>
-
-<p>Every other week has been a good fit with us as far as frequency. We&rsquo;ve got lots of other local groups and events, and any more frequent and we&rsquo;d not be able to have a consistent base of folks coming.</p>
-
-<h3>TL;DR</h3>
-
-<p>So the ingredients for a good hack night?</p>
-
-<ul>
-<li>Free Pizza</li>
-<li>Beverages</li>
-<li>Social people</li>
-<li>Unstructured Chaos</li>
-<li>Inviting lots of people from diverse backgrounds</li>
-<li>A consistent schedule</li>
-</ul>
-
-]]></content>
-  </entry>
   
-</feed>
+
+
+<time datetime="2013-08-21T11:42:00-04:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1/" data-via="mikedanko" data-counturl="http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/21/successful-hack-nights/" title="Previous Post: Successful Hack Nights">&laquo; Successful Hack Nights</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/rails-on-smartos-part-1/">Rails on SmartOS Part 1</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/21/successful-hack-nights/">Successful Hack Nights</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/skord">@skord</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'skord',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mike Danko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mikedanko';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1/';
+        var disqus_url = 'http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
