@@ -4,7 +4,7 @@
   <title><![CDATA[Danko]]></title>
   <link href="http://skord.github.io/atom.xml" rel="self"/>
   <link href="http://skord.github.io/"/>
-  <updated>2013-08-21T15:07:48-04:00</updated>
+  <updated>2013-08-21T15:16:40-04:00</updated>
   <id>http://skord.github.io/</id>
   <author>
     <name><![CDATA[Mike Danko]]></name>
@@ -18,7 +18,7 @@
     <link href="http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1/"/>
     <updated>2013-08-21T11:42:00-04:00</updated>
     <id>http://skord.github.io/blog/2013/08/21/rails-on-smartos-part-1</id>
-    <content type="html"><![CDATA[<p>As a consulting Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone?</p>
+    <content type="html"><![CDATA[<p>As a Rails developer, I&rsquo;m often not asked questions about deployment platform. Why would anyone?</p>
 
 <p>The Rails community has really easy options for deployment so it&rsquo;s not always something we think a whole lot about. We have <a href="http://skord.github.io/blog/2013/08/21/successful-hack-nights/">Engine Yard</a>, <a href="http://heroku.com">Heroku</a>, capistrano setups for deploying to VPS&rsquo;s that are pretty much magic, and things like the <a href="https://github.com/rubber/rubber">Rubber</a> gem that make it pretty much effortless to deploy a machine in the Amazon cloud.</p>
 
